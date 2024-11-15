@@ -1,0 +1,33 @@
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+  <!-- bigtable specific properties -->
+  <property>
+    <name>google.bigtable.project.id</name>
+    <value>${bigtable.project}</value>
+  </property>
+  <property>
+    <name>google.bigtable.instance.id</name>
+    <value>${bigtable.instance}</value>
+  </property>
+  <property>
+    <name>google.bigtable.app_profile.id</name>
+    <value>${bigtable.app_profile}</value>
+  </property>
+
+  <!-- inject sync connection stubs -->
+  <property>
+    <name>hbase.client.connection.impl</name>
+    <value>com.google.cloud.bigtable.hbase2_x.BigtableConnection</value>
+  </property>
+
+  <!-- inject async api stubs -->
+  <property>
+    <name>hbase.client.async.connection.impl</name>
+    <value>org.apache.hadoop.hbase.client.BigtableAsyncConnection</value>
+  </property>
+  <property>
+    <name>hbase.client.registry.impl</name>
+    <value>org.apache.hadoop.hbase.client.BigtableAsyncConnection</value>
+  </property>
+
+</configuration>
